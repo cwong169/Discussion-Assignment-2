@@ -57,4 +57,6 @@ def merge_sort(arr,cmp):
 
 # must be in-place sort
 def quick_sort(arr,cmp):
+    if len(arr) <= 1:
+        return arr
     pass
