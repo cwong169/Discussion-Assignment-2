@@ -59,4 +59,19 @@ def merge_sort(arr,cmp):
 def quick_sort(arr,cmp):
     if len(arr) <= 1:
         return arr
+    pvt = arr[np.random.randint(len(arr))]
+    arrSmall = []
+    arrMid = []
+    arrLarge = []
+    for e in arr:
+        if (cmp(pvt,e) > 0):
+            arrSmall.append(e)
+        elif (cmp(pvt,e) < 0):
+            arrLarge.append(e)
+        else:
+            arrMid.append(e)
+    arrSmall = quick_sort(arrSmall,cmp)
+    arrLarge = quick_sort(arrLarge,cmp)
+    arr = arrSmall + arrMid + arrLarge
+    return arr
     pass
