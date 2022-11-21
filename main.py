@@ -24,7 +24,7 @@ def cmp(a,b):
 # must be in-place sort
 def merge_sort(arr,cmp):
     if len(arr) > 1:
-    # Find the floor
+    # Find the floor 
     mid = len(arr) // 2
     # Left represents first half
     left = arr[:mid]
