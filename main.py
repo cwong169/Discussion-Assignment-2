@@ -3,6 +3,9 @@
 #          cmp(a,b)<0   if a should be placed before b,
 #          cmp(a,b)==0  if arr is still sorted after a and b are exchanged,
 #          cmp(a,b)>0   if a should be placed behind b.
+
+import numpy as np
+
 def multi_sort(arr, cmp, method="None"):
     if(method=="quick"):
         quick_sort(arr,cmp)
@@ -21,7 +24,6 @@ def cmp(a,b):
     else:
         return 1
 
-# must be in-place sort
 def merge_sort(arr,cmp):
     if len(arr) > 1:
         # Find the mid of the list or array
@@ -65,10 +67,10 @@ def quick_sort(arr,cmp):
     arrMid = []
     arrLarge = []
     for e in arr:
-        if (cmp(pvt,e) > 0):
-            arrSmall.append(e)
-        elif (cmp(pvt,e) < 0):
+        if (cmp(e,pvt) > 0):
             arrLarge.append(e)
+        elif (cmp(e,pvt) < 0):
+            arrSmall.append(e)
         else:
             arrMid.append(e)
     arrSmall = quick_sort(arrSmall,cmp)
